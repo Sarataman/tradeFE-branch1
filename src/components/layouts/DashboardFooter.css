@@ -121,7 +121,7 @@
   .dash-contents .market {
     transition: 0.25s;
     background-color: #131722;
-    width: 82%;
+    width: 100%;
     height: 100vh;
     position: relative;
     overflow-y: hidden;
@@ -843,13 +843,9 @@
   }
   .dash-contents .trade .chart {
     height: 94vh;
-    width: calc(100% - 125px);
-    width: -webkit-calc(100% - 72px) !important;
-  }
-  .dash-contents .trade .chart {
-    height: 94vh;
-    width: calc(100% - 125px);
-    width: -webkit-calc(100% - 77px) !important;
+    width: 100vw;
+    /* width: calc(100% - 125px);
+    width: -webkit-calc(100% - 72px) !important; */
   }
 
   .footer-right-side button {
