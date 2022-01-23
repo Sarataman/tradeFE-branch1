@@ -144,16 +144,15 @@ const DashboardHeader = ({
                     : data.siteLogo
                   : ""
               }
-              alt="logo"
-            />
+              alt="logo"            />
           </Navbar.Brand>
           <NavDropdown
               title={
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars hamburger"></i>
               }
               // id="collasible-nav-dropdown"
               className="d-block d-lg-none admin-drop"
-              style={{ backgroundColor: isDarkMode ? '#131722' : '#f2f2f2' }}
+              style={{ backgroundColor: isDarkMode ? '#131722' : '#f2f2f2', margin: '0' }}
             >
               <ul>              
                     {user && user.isAdmin && (
