@@ -788,3 +788,82 @@
   color: #fff !important;
   border-bottom: 2px solid rgb(82, 82, 82) !important;
 }
+
+/* @media screen and (max-width: 800px) {
+  .admin-drop {
+    background-color: #131722;
+    width: 18%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+} */
+
+/* .admin-drop {
+  background-color: #131722;
+  width: 6%;
+  height: 100vh;
+  overflow-y: auto;
+} */
+
+.admin-drop ul {
+  background-color: #131722;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-drop ul li {
+  border-bottom: 1px solid #1c2d30;
+  width: 100%;
+}
+
+.admin-drop ul li:hover {
+  background-color: #1c2030;
+}
+
+.admin-drop ul li,
+.admin-drop ul li a {
+  display: flex;
+}
+
+.admin-drop ul li a {
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px 10px;
+  margin: 1px 0;
+}
+
+.admin-drop ul li.active {
+  background-color: #1c2030;
+}
+
+.admin-drop ul li a svg {
+  display: block;
+  margin: auto;
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.admin-drop ul li a span {
+  font-size: 10px;
+  text-transform: uppercase;
+  display: block;
+  padding: 0 2px;
+  margin-top: 5px;
+}
+
+
+/* .admin-dropitem {
+  background-color: #131722;
+  color: white;
+  font-size: 12px;
+  margin: 0;
+}
+
+.admin-droplist {
+  display: flex;
+
+} */

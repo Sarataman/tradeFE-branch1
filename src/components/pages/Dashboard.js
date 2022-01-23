@@ -140,6 +140,12 @@ const Dashboard = () => {
         data={webData}
         support={support}
         setSupport={setSupport}
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        setAdminSelected={setAdminSelected}
+        setManagerSelected={setManagerSelected}
+        managerSelecteds={managerSelected}
+        adminSelected={adminSelected}
       />
       <section className="dash-contents">
         <div className="dash-row">

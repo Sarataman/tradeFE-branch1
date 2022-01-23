@@ -25,72 +25,8 @@ const DashboardAside = ({
 
   return (
     <Fragment>
-      {/* <div 
-        className="dropdown sidebar show d-block d-lg-none"
-        style={{ backgroundColor: isDarkMode ? '#131722' : '#f2f2f2' }}
-      >
-        <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Drop
-        </a>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          {user && user.isAdmin && (
-            <li
-              onClick={() => {
-                setAdminSelected(true)
-                setManagerSelected(false)
-                setSelectedTab(null)
-              }}
-            >
-              <NavLink
-                to="/dashboard/admin"
-                className={`dropdown-item ${adminSelected ? 'active' : ''}`}
-              >
-                <IoSettingsOutline />
-                <span>Admin</span>
-              </NavLink>
-            </li>
-          )}
-          {user && (user.isManager || user.isAdmin) && (
-            <li
-              onClick={() => {
-                setManagerSelected(true)
-                setAdminSelected(false)
-                setSelectedTab(null)
-              }}
-            >
-              <NavLink
-                to="/dashboard/manager"
-                className={`dropdown-item ${managerSelected ? 'active' : ''}`}
-              >
-                <AiOutlinePieChart />
-                <span>Manager</span>
-              </NavLink>
-            </li>
-          )}
-
-          {asideList.map((aside) => (
-            <li
-              onClick={() => {
-                setSelectedTab(aside.id)
-                setAdminSelected(false)
-                setManagerSelected(false)
-              }}
-              key={aside.id}
-            >
-              <NavLink
-                to={aside.path}
-                className={`dropdown-item ${selectedTab === aside.id ? 'active' : ''}`}
-              >
-                {React.createElement(aside.icon, { size: 20, color: '#fff' })}
-                <span style={{ whiteSpace: 'pre-wrap' }}>{aside.title}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-
-      </div> */}
       <div
-        className="sidebar"
+        className="sidebar d-none d-lg-block"
         style={{ backgroundColor: isDarkMode ? '#131722' : '#f2f2f2' }}
       >
         <ul>

@@ -586,8 +586,8 @@
   }
   .dash-contents .trade .chart {
     height: 85vh;
-    width: calc(100% - 125px);
-    width: -webkit-calc(100% - 87px);
+    /* width: calc(100% - 125px);
+    width: -webkit-calc(100% - 87px); */
   }
   .switish1 {
     display: flex;

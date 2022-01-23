@@ -12,6 +12,7 @@ import VerificationModal from "../utils/modals/kyc/VerificationModal";
 import ForexBox from "../layouts/ForexBox";
 import useInterval from "../hooks/useInterval";
 
+
 import {
   X,
   Pen,
@@ -36,7 +37,24 @@ import { tradesMargin } from "./../../helpers/getOpenTradesMargin";
 import { getUserBalance } from "../../helpers/getUserBalance";
 import { getActiveTradeMargin } from "./../../helpers/getActiveTradeMargin";
 
-const DashboardHeader = ({ support, setSupport, data }) => {
+import { asideList } from '../../helpers/dataset/asideNavList'
+import { NavLink } from 'react-router-dom'
+import { AiOutlinePieChart } from 'react-icons/ai'
+import { IoSettingsOutline } from 'react-icons/io5'
+
+const DashboardHeader = ({ 
+  support, 
+  setSupport, 
+  data,
+  selectedTab,
+  setSelectedTab,
+  setAdminSelected,
+  setManagerSelected,
+  managerSelected,
+  adminSelected,}) => {
+    
+  const { setOpen } = useActions();
+
   const history = useHistory();
   const { user, loading } = useSelector((state) => state.auth);
   const { userMargin, openTrades, activeTrade } = useSelector(
@@ -107,7 +125,7 @@ const DashboardHeader = ({ support, setSupport, data }) => {
     } else {
       setOpenVerification(true);
     }
-  };
+  };  
 
   return (
     !loading && (
@@ -129,13 +147,76 @@ const DashboardHeader = ({ support, setSupport, data }) => {
               alt="logo"
             />
           </Navbar.Brand>
+          <NavDropdown
+              title={
+                <i class="fas fa-bars"></i>
+              }
+              // id="collasible-nav-dropdown"
+              className="d-block d-lg-none admin-drop"
+              style={{ backgroundColor: isDarkMode ? '#131722' : '#f2f2f2' }}
+            >
+              <ul>              
+                    {user && user.isAdmin && (
+                      <li
+                        onClick={() => {
+                          setAdminSelected(true)
+                          setManagerSelected(false)
+                          setSelectedTab(null)
+                        }}
+                      >
+                        <NavLink
+                          to="/dashboard/admin"
+                          className={adminSelected ? 'active' : ''}
+                        >
+                          <IoSettingsOutline />
+                          <span>Admin</span>
+                        </NavLink>
+                      </li>
+                    )}
+                  {user && (user.isManager || user.isAdmin) && (
+                    <li
+                      onClick={() => {
+                        setManagerSelected(true)
+                        setAdminSelected(false)
+                        setSelectedTab(null)
+                      }}
+                    >
+                      <NavLink
+                        to="/dashboard/manager"
+                        className={managerSelected ? 'active' : ''}
+                      >
+                        <AiOutlinePieChart />
+                        <span>Manager</span>
+                      </NavLink>
+                    </li>
+                  )}
+                  {asideList.map((aside) => (
+                    <li
+                      onClick={() => {
+                        setSelectedTab(aside.id)
+                        setAdminSelected(false)
+                        setManagerSelected(false)
+                      }}
+                      key={aside.id}
+                    >
+                      <NavLink
+                        to={aside.path}
+                        className={selectedTab === aside.id ? 'active' : ''}
+                      >
+                        {React.createElement(aside.icon, { size: 20, color: '#fff' })}
+                        <span style={{ whiteSpace: 'pre-wrap' }}>{aside.title}</span>
+                      </NavLink>
+                    </li>
+                  ))}
+              </ul>
+          </NavDropdown>
           <nav className="stock-nav">
             <ul className="stock-nav-list mb-0">
               {stocks.map((stock) => (
                 <li
                   style={{
                     color: isDarkMode ? "rgb(170 170 170)" : "#000",
-                    width: stock.id === 4 ? 120 : undefined,
+                    width: stock.id == 4 ? 120 : undefined,
                   }}
                   onClick={() => {
                     setSelectedStock(stock.id);
@@ -161,6 +242,7 @@ const DashboardHeader = ({ support, setSupport, data }) => {
           </nav>
 
           <div className="emptyDIV" onClick={() => setOpenForex(false)}></div>
+
           <Notification user={user} />
           <Nav
             className="ml-auto align-items-center"
@@ -433,7 +515,7 @@ const DashboardHeader = ({ support, setSupport, data }) => {
                       </span>
                     </p>
                   </div>
-                  <div>
+                  <div className="">
                     <Button
                       variant="secondary"
                       className={`btn-deposit ${
@@ -496,7 +578,7 @@ const DashboardHeader = ({ support, setSupport, data }) => {
               </div>
             </NavDropdown>
             <Button
-              variant="outline-success d-flex align-items-center deposit ml-3 "
+              variant="outline-success d-none d-md-flex align-items-center deposit ml-3 "
               onClick={() => setShowCredit(true)}
             >
               <ArrowRepeat className="mr-3 hideArrow" />
@@ -604,6 +686,10 @@ DashboardHeader.propTypes = {
   data: PropTypes.object.isRequired,
   support: PropTypes.bool.isRequired,
   setSupport: PropTypes.func.isRequired,
+  selectedTab: PropTypes.number.isRequired,
+  setSelectedTab: PropTypes.func.isRequired,
+  setAdminSelected: PropTypes.func.isRequired,
+  setManagerSelected: PropTypes.func.isRequired
 };
 
 export default DashboardHeader;
