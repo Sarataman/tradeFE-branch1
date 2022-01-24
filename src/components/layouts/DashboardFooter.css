@@ -28,16 +28,8 @@
   display: flex;
   align-items: center;
   background: rgb(0, 124, 239);
-  padding: 5px;
-  border-radius: 2px;
-}
-
-@media screen and (max-width: 800px) {
- .admin-text-wrapper {
-  position: absolute;
-  min-width: 70px;
   padding: 3px;
- } 
+  border-radius: 2px;
 }
 
 .theme-wrapper {
@@ -312,7 +304,7 @@
     font-size: 7px;
   }
   .stock-nav .stock-nav-item--dark {
-    /* border: 1px solid #555; */
+    border: 1px solid #555;
     font-size: 7px;
   }
   .navbar {
@@ -607,7 +599,7 @@
     display: none;
   }
   .dash-contents .trade .trade-action {
-    display: block;
+    display: flex;
     /* margin-top: -28%; */
     /* display: flex; */
     height: 70vh;
@@ -846,17 +838,11 @@
     width: calc(100% - 125px);
     width: -webkit-calc(100% - 72px) !important;
   }
-  .dash-contents .trade .chart {
+/*   .dash-contents .trade .chart {
     height: 94vh;
     width: calc(100% - 125px);
     width: -webkit-calc(100% - 77px) !important;
-  }
-
-  .footer-right-side button {
-    position: absolute;
-    font-size: 0.7rem;
-    margin-left: -35%;
-  }
+  } */
 
   /* .ChartPL {
   position: absolute;
