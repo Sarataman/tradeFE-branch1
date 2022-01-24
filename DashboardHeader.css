@@ -564,7 +564,7 @@
   .dash-contents .market {
     transition: 0.25s;
     background-color: #131722;
-    width: 100%;
+    width: 85%;
     height: 100vh;
     position: relative;
     overflow-y: hidden;
@@ -581,7 +581,7 @@
   }
 
   .dash-contents .trade .trade-action .trade-amount .trade-amount-minus {
-    width: 100%;
+    width: 90%;
     text-align: center;
     padding: 5px 10px;
     height: 30px;
