@@ -838,11 +838,11 @@
     width: calc(100% - 125px);
     width: -webkit-calc(100% - 72px) !important;
   }
-  .dash-contents .trade .chart {
+/*   .dash-contents .trade .chart {
     height: 94vh;
     width: calc(100% - 125px);
     width: -webkit-calc(100% - 77px) !important;
-  }
+  } */
 
   /* .ChartPL {
   position: absolute;
