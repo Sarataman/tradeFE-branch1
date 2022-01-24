@@ -7576,7 +7576,7 @@ label.custom-control-label {
   .dash-contents .market {
     transition: 0.25s;
     background-color: #131722;
-    width: 100vw;
+    width: 82%;
     height: 100vh;
     position: relative;
     overflow-y: hidden;
